@@ -1,0 +1,225 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <link rel="stylesheet" href=" {% static 'css/style1.css' %} ">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+    <div class="container-fluid d-flex align-items-center justify-content-center ">
+        <div class="row container-fluid flex-items-xs-middle flex-items-xs-center   mb-5">
+
+            <!-- Table #1  -->
+            <div class="col-xs-12 col-lg-4 d-flex align-items-center justify-content-center mb-5 pb-5">
+                <div class="card text-xs-center p-2 mt-1 shadow p-4">
+                    <div class="card-header">
+                        <h3 class="display-2"><span class="currency">₹</span>199<span class="period"></span></h3>
+
+                    </div>
+                    <div class="card-block  ">
+                        <h4 class="card-title">
+                            Basic Plan -400 credit
+                        </h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">You can refer 4  topics</li>
+<form>
+                        </ul>
+                        <button class="btn btn-gradient mt-2" onclick="pay_now('basic')" id="rzp-button1">Choose Plan</a>
+                        </div>
+                </div>
+            </div></form>
+
+            <!--    <button class="boxed-btn"  id="rzp-button1" style="display:none;"><b><font size="6"><i> Pay Now</i></font></b></button><br>-->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_8omlEOoshWBlBg",
+    "amount": "19900",
+    "currency": "INR",
+    "name": "SOCIAL QUESTION ANSWER WEBSITE",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+   "handler": function (response){
+                                console.log("success")
+                                var form = document.getElementById["myform"];
+
+
+                                var a = response.razorpay_payment_id;
+
+                                // alert({{order_id}})
+
+                                window.location.href = 'http://127.0.0.1:8000/payment_done1/1'
+
+                            },
+    "prefill": {
+        "name": "{{user.f_name}}",
+        "email": "{{usr_lg.email}}",
+        "contact": "8075901728"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+
+};
+var rzp1 = new Razorpay(options);
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+
+
+
+
+
+
+
+
+
+            <!-- Table #1  -->
+            <div class="col-xs-12 col-lg-4 d-flex align-items-center justify-content-center mb-5 pb-5">
+                <div class="card text-xs-center p-2 shadow p-4">
+                    <div class="card-header">
+                        <h3 class="display-2"><span class="currency">₹</span>399<span class="period"></span></h3>
+
+                    </div>
+                    <div class="card-block">
+                        <h4 class="card-title">
+                            Regular Plan -1000 credit
+                        </h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">You can refer 10  topics</li>
+
+                        </ul>
+                        <button class="btn btn-gradient mt-2" onclick="pay_now('regular')" id="rzp-button2">Choose Plan</a>
+                        </div>
+                </div>
+            </div>
+
+            <!--    <button class="boxed-btn"  id="rzp-button1" style="display:none;"><b><font size="6"><i> Pay Now</i></font></b></button><br>-->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_8omlEOoshWBlBg",
+    "amount": "39900",
+    "currency": "INR",
+    "name": "SOCIAL QUESTION ANSWER WEBSITE",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+   "handler": function (response){
+                                console.log("success")
+                                var form = document.getElementById["myform"];
+
+
+                                var a = response.razorpay_payment_id;
+
+                                // alert({{order_id}})
+
+                                window.location.href = 'http://127.0.0.1:8000/payment_done1/2'
+
+                            },
+    "prefill": {
+        "name": "{{user.f_name}}",
+        "email": "{{usr_lg.email}}",
+        "contact": "8075901728"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+
+};
+var rzp2 = new Razorpay(options);
+document.getElementById('rzp-button2').onclick = function(e){
+    rzp2.open();
+    e.preventDefault();
+}
+</script>
+
+
+
+
+
+            <!-- Table #1  -->
+            <div class="col-xs-12 col-lg-4 d-flex align-items-center justify-content-center mb-5 pb-5 ">
+                <div class="card text-xs-center p-2 shadow p-4">
+                    <div class="card-header">
+                        <h3 class="display-2"><span class="currency">₹</span>599<span class="period"></span></h3>
+
+
+                    </div>
+                    <div class="card-block">
+                        <h4 class="card-title">
+                            Enterprise Plan-1800 credit
+                        </h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">Users can refer 18 topics</li>
+
+                        </ul>
+                        <button class="btn btn-gradient mt-2" onclick="pay_now('enterprise')" id="rzp-button3">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--    <button class="boxed-btn"  id="rzp-button1" style="display:none;"><b><font size="6"><i> Pay Now</i></font></b></button><br>-->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_8omlEOoshWBlBg",
+    "amount": "59900",
+    "currency": "INR",
+    "name": "SOCIAL QUESTION ANSWER WEBSITE",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+   "handler": function (response){
+                                console.log("success")
+                                var form = document.getElementById["myform"];
+
+
+                                var a = response.razorpay_payment_id;
+
+                                // alert({{order_id}})
+
+                                window.location.href = 'http://127.0.0.1:8000/payment_done1/3'
+
+                            },
+    "prefill": {
+        "name": "{{user.f_name}}",
+        "email": "{{usr_lg.email}}",
+        "contact": "8075901728"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+
+};
+var rzp3 = new Razorpay(options);
+document.getElementById('rzp-button3').onclick = function(e){
+    rzp3.open();
+    e.preventDefault();
+}
+</script>
+        </div>
+    </div>
+
+
+</body>
+</html>

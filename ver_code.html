@@ -1,0 +1,87 @@
+{% load static %}
+<html>
+<head>
+<link rel="stylesheet" href="{% static 'css/stylee.css'%}"/>
+
+</head>
+<body>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)) ,url('{% static 'images/background.jpg'%}');">
+  <!--<div style="background-color:>-->
+<div class="navbar" >
+
+    <link rel="stylesheet" href="{% static 'css/pass.css'%}"/>
+<ul>
+    <div class="row" style="width:500px;">
+		<h1>Forgot Password</h1>
+		<h6 class="information-text">Enter verification code.</h6>
+		<div class="form-group">
+
+			   <script >
+        function check()
+        {
+        var otp=document.getElementById('otp').value.trim();
+        var tok=document.getElementById('otp1').value.trim();
+        if(otp!=tok)
+        {
+         document.getElementById('otp_var').innerHTML="incorrect otp";
+         document.getElementById('pass').style.display="none";
+
+        return false;
+
+        }
+       else
+       {
+       document.getElementById('otp_var').innerHTML=" otp verified successfully";
+       document.getElementById('pass').style.display="block";
+       return true;
+       }
+
+        }
+
+    </script>
+			<form method="POST">{% csrf_token %}
+				<p><label for="username">Enter otp</label></p>
+			<input type="tel" id="otp"  minlength="6" maxlength="6" onkeyup="return check();">
+				<span id="otp_var"></span></font><br>
+              <input type="text" id="otp1" style="display:none;" value="{{token}}">
+			<div id="pass" style="display:none">
+				Enter new PASSWORD
+				<input type="password" id="n_pass" name="n_pass" >
+				<input type="submit" onclick="showSpinner()"><h5>verification code</h5>
+			</div>
+
+
+
+		</div>
+		<div class="footer">
+			<h5>New here? <a href="/reg2/">Sign Up.</a></h5>
+			<h5>Already have an account? <a href="/login/">Sign In.</a></h5>
+
+
+
+		</div>
+	</div>
+
+</div>
+
+<div class ="content">
+  <div style="color:red">
+  {% for msg in messages %}
+  {{msg}}
+  {% endfor %} </div>
+
+
+
+</div>
+</div>
+
+
+
+
+
+</html>
+
+
+
+

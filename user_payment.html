@@ -1,0 +1,264 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/stylee.css'%}"/>
+    <title>Title</title>
+</head>
+<body>
+<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.778),rgba(0, 0, 0, 0.778)) ,url('{% static 'images/background.jpg'%}');">
+  <!--<div style="background-color:>-->
+<div class="navbar">
+<img src="{% static 'images/logo.jpg'%}" class="logo" width="800" height="50">
+<div>
+
+
+<style>
+#nav {
+list-style:none inside;
+margin:0;
+padding:0;
+text-align:center;
+}
+#nav li {
+display:block;
+position:relative;
+float:left;
+background: #24af15; /* menu background color */
+}
+#nav li a {
+display:block;
+
+padding:0;
+text-decoration:none;
+width:300px; /* this is the width of the menu items */
+line-height:45px; /* this is the hieght of the menu items */
+color:#ffffff; /* list item font color */
+}
+#nav li li a {font-size:80%;} /* smaller font size for sub menu items */
+#nav li:hover {background:#003f20;} /* highlights current hovered list item and the parent list items when hovering over sub menues */
+#nav ul {
+position:absolute;
+padding:0;
+left:0;
+
+display:none; /* hides sublists */
+}
+#nav li:hover ul ul {display:none;} /* hides sub-sublists */
+#nav li:hover ul {display:block;} /* shows sublist on hover */
+#nav li li:hover ul {
+display:block; /* shows sub-sublist on hover */
+margin-left:300px; /* this should be the same width as the parent list item */
+margin-top:-55px; /* aligns top of sub menu with top of list item */
+}
+</style></div>
+</div>
+
+
+
+<div id="google_element">
+    <font size="25" color="white"><i>Terms And Conditions</font></i> s<br><br>
+    <p><font color="white"><i>
+
+
+      1.  Payment: You agree to pay the full amount of Rs. 500 for registering a premium account using the payment gateway.<br>
+
+2. Refunds: Refunds will not be provided once the payment has been made. However, in case of any error or technical issues, refunds will be made at the sole discretion of the company.<br>
+
+3. Security: You agree to use a secure payment method to ensure the safety of your personal and financial information. The company is not responsible for any losses or damages resulting from unauthorized use of your payment information.<br>
+
+4. Payment Gateway Provider: The payment gateway provider is a third-party service and is not under the control of the company. The company is not responsible for any issues or errors that may arise during the payment process.<br>
+
+5. Privacy: Your personal and financial information will be stored and processed in accordance with the company's privacy policy.<br>
+
+6. Account Access: Once the payment is processed, you will have access to the premium account features for the duration of the subscription period. The company reserves the right to terminate your account if you violate any of the terms and conditions.<br>
+
+7. Subscription Renewal: Your premium account subscription will automatically renew at the end of the subscription period, unless you cancel the subscription prior to the renewal date. The renewal fee will be charged to the same payment method used for the initial payment.<br>
+
+8. Modifications: The company reserves the right to modify the terms and conditions of the payment gateway service at any time. You will be notified of any changes via email or through the website.<br>
+
+By making the payment, you agree to the above terms and conditions for registering a premium account for Rs. 200 using the payment gateway.<br><br>
+
+
+
+
+
+
+
+
+
+
+    </font></i>
+
+    </p><div>
+    <script >
+        function check()
+        {
+        var otp=document.getElementById('otp').value.trim();
+        var tok=document.getElementById('otp1').value.trim();
+        if(otp!=tok)
+        {
+         document.getElementById('otp_var').innerHTML="incorrect otp";
+         document.getElementById('rzp-button1').style.display="none";
+
+        return false;
+
+        }
+       else
+       {
+       document.getElementById('otp_var').innerHTML=" email verified successfully";
+       document.getElementById('rzp-button1').style.display="block";
+       return true;
+       }
+
+        }
+
+    </script>
+
+
+<form action="/payment_done/" method="POST" id="myform"> {% csrf_token %}
+
+        <font color="white"> enter the otp here :
+            <br><input type="tel" id="otp"  minlength="6" maxlength="6" onkeyup="return check();">
+            <span id="otp_var"></span></font><br>
+        <input type="text" id="otp1" style="display:none;" value="{{token}}">
+    <br>
+        <button class="boxed-btn"  id="rzp-button1" style="display:none;"><b><font size="6"><i> Submit</i></font></b></button><br>
+    <br>
+
+</form>
+</div>
+
+
+<div class="pay" id="rzp-button12" style="display:none;">
+ <link rel="stylesheet" href=" {% static 'css/style1.css' %} ">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <div class="container-fluid d-flex align-items-center justify-content-center ">
+        <div class="row container-fluid flex-items-xs-middle flex-items-xs-center   mb-5">
+
+            <!-- Table #1  -->
+            <div class="col-xs-12 col-lg-4 d-flex align-items-center justify-content-center mb-5 pb-5">
+                <div class="card text-xs-center p-2 mt-1 shadow p-4">
+                    <div class="card-header">
+                        <h3 class="display-2"><span class="currency">₹</span>199<span class="period"></span></h3>
+
+                    </div>
+                    <div class="card-block  ">
+                        <h4 class="card-title">
+                            Basic Plan -400 credit
+                        </h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">You can refer 4  topics</li>
+
+                        </ul>
+                        <button class="btn btn-gradient mt-2" onclick="pay_now('basic')">Choose Plan</a>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Table #1  -->
+            <div class="col-xs-12 col-lg-4 d-flex align-items-center justify-content-center mb-5 pb-5">
+                <div class="card text-xs-center p-2 shadow p-4">
+                    <div class="card-header">
+                        <h3 class="display-2"><span class="currency">₹</span>399<span class="period"></span></h3>
+
+                    </div>
+                    <div class="card-block">
+                        <h4 class="card-title">
+                            Regular Plan -1000 credit
+                        </h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">You can refer 10  topics</li>
+
+                        </ul>
+                        <button class="btn btn-gradient mt-2" onclick="pay_now('regular')">Choose Plan</a>
+                        </div>
+                </div>
+            </div>
+
+            <!-- Table #1  -->
+            <div class="col-xs-12 col-lg-4 d-flex align-items-center justify-content-center mb-5 pb-5 ">
+                <div class="card text-xs-center p-2 shadow p-4">
+                    <div class="card-header">
+                        <h3 class="display-2"><span class="currency">₹</span>599<span class="period"></span></h3>
+
+
+                    </div>
+                    <div class="card-block">
+                        <h4 class="card-title">
+                            Enterprise Plan-1800 credit
+                        </h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">Users can refer 18 topics</li>
+
+                        </ul>
+                        <button class="btn btn-gradient mt-2" onclick="('enterprise')">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--    <button class="boxed-btn"  id="rzp-button1" style="display:none;"><b><font size="6"><i> Pay Now</i></font></b></button><br>-->
+<!--<script src="https://checkout.razorpay.com/v1/checkout.js"></script>-->
+<!--<script>-->
+<!--var options = {-->
+<!--    "key": "rzp_test_8omlEOoshWBlBg",-->
+<!--    "amount": "20000",-->
+<!--    "currency": "INR",-->
+<!--    "name": "SOCIAL QUESTION ANSWER WEBSITE",-->
+<!--    "description": "Test Transaction",-->
+<!--    "image": "https://example.com/your_logo",-->
+<!--    "order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1-->
+<!--    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",-->
+<!--   "handler": function (response){-->
+<!--                                console.log("success")-->
+<!--                                var form = document.getElementById["myform"];-->
+
+
+<!--                                var a = response.razorpay_payment_id;-->
+
+<!--                                // alert({{order_id}})-->
+
+<!--                                window.location.href = 'http://127.0.0.1:8000/payment_done/'-->
+
+<!--                            },-->
+<!--    "prefill": {-->
+<!--        "name": "{{user.f_name}}",-->
+<!--        "email": "{{usr_lg.email}}",-->
+<!--        "contact": "8075901728"-->
+<!--    },-->
+<!--    "notes": {-->
+<!--        "address": "Razorpay Corporate Office"-->
+<!--    },-->
+<!--    "theme": {-->
+<!--        "color": "#3399cc"-->
+<!--    }-->
+
+<!--};-->
+<!--var rzp1 = new Razorpay(options);-->
+<!--document.getElementById('rzp-button1').onclick = function(e){-->
+<!--    rzp1.open();-->
+<!--    e.preventDefault();-->
+<!--}-->
+<!--</script></form></div></div>-->
+
+
+<script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+                            <script >
+                                function loadGoogleTranslate(){
+                                   new google.translate.TranslateElement("google_element");
+                                }
+                            </script>
+
+</body>
+</html>
